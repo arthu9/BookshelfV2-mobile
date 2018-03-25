@@ -10,7 +10,6 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
     <!-- Required meta tags-->
     <meta charset="utf-8">
@@ -45,11 +44,11 @@
                 <div class="form-group has-feedback" style="margin: 2%">
                     <label for="search" class="sr-only">Search</label>
                     <input type="text" class="form-control" name="search" id="search" placeholder="Search">
-                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    <span class="glyphicon glyphicon-search form-control-feedback" role="submit"></span>
                 </div>
             </form>
         <div class="content-block">
-        
+        <a href="categories.html"><p>Categories</p></a>
         </div>
     </div>
 
@@ -65,8 +64,8 @@
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
                     <div class="center sliding">Bookshelf</div>
                    <div class="right">
-                    <a href="signup.html" class="glyphicon glyphicon-user"></a>
-                    <a href="login.html" class="glyphicon glyphicon-log-in"></a>
+                    <a href="signup.html" class="glyphicon glyphicon-user" style="text-decoration: none;"></a>
+                    <a href="login.html" class="glyphicon glyphicon-log-in" style="text-decoration: none;"></a>
                     </div>
                 </div>
             </div>
@@ -79,30 +78,30 @@
                         <div class="content-block">
                             <div class="row">
                                 <div class="col-xs-6 col-md-3">
-                                    <p>Sci-fi</p>
-                                <a href="#" class="thumbnail">
-                                  <img src="D:/mobile/bookshelf/lib/framework7/img/i-f7-ios.png" alt="...">
-                                </a>
+                                    <p>Top Rated</p>
+                                    <a href="#" class="thumbnail">
+                                    <img src="D:/mobile/bookshelf/lib/framework7/img/i-f7-ios.png" alt="...">
+                                    </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <p>Top Borrowed</p>
+                                    <a href="#" class="thumbnail" >
+                                      <img src="..." alt="...">
+                                    </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <p>Top Horror</p>
+                                    <a href="#" class="thumbnail">
+                                      <img src="..." alt="...">
+                                    </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <p>Top Comedy</p>
+                                    <a href="#" class="thumbnail">
+                                      <img src="..." alt="...">
+                                    </a>
                                 </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <p>Mystery</p>
-                                <a href="#" class="thumbnail" >
-                                  <img src="..." alt="...">
-                                </a>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <p>Horror</p>
-                                <a href="#" class="thumbnail">
-                                  <img src="..." alt="...">
-                                </a>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <p>Comedy</p>
-                                <a href="#" class="thumbnail">
-                                  <img src="..." alt="...">
-                                </a>
-                                </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,8 +110,6 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
                     <!-- Toolbar links -->
-                    <a href="#" class="link" style="text-decoration: none;">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
                 </div>
             </div>
         </div>
