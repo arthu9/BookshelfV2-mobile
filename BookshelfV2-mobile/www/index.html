@@ -31,7 +31,11 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
-</head>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head> -->
 
 <body>
     <!-- Status bar overlay for full screen mode (PhoneGap) -->
@@ -71,15 +75,19 @@
                     <!-- Scrollable page content -->
                     <div class="page-content">
                         <div class="content-block">
+                            <!-- <a href="test.html">scam</a> -->
                             <p>Page content goes here</p>
                             <!-- Link to another page -->
                             <a href="about.html">About app</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="page cached" data->
-                
+                <div class="page cached" data-page="addbook">
+                    <div class="page-content">
+                        <center>BOOKSTORE</center><br><br><br>
+                        <a href="addbook.html"><center>ADD A BOOK</center></a>                       
+                    </div>
+                </div>
             </div>
             <!-- Bottom Toolbar-->
             <div class="toolbar">
@@ -87,6 +95,7 @@
                     <!-- Toolbar links -->
                     <a href="#" class="link">Link 1</a>
                     <a href="#" class="link">Link 2</a>
+                    <a href="#addbook" class="link">BookStore</a>
                 </div>
             </div>
         </div>
@@ -95,6 +104,8 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
 </body>
 
 </html>

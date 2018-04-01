@@ -1,39 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
-<div class="navbar">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-            </a>
-        </div>
-        <div class="center sliding">BOOK DETAILS</div>
-        <div class="right">
-            <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-        </div>
-    </div>
-</div>
-<div class="pages">
-    <div data-page="about" class="page">
-        <div class="page-content">
-            <div class="content-block">
-                <br>
-                <br>
-                <center>Name of Book:<input type="text" name="bookname"></center>
-                <br>
-                <br>
-                <center>Author/s:<input type="text" name="bookauthor"></center>
-                <br>
-                <br>
-                <center>Description:<textarea rows="4" cols="50" name="bookdescription"></textarea></center>
-                <br>
-                <br>
-                Selltype of Book:
-                <input type="radio" name="bookselltype" value="Rental">Rental
-                <input type="radio" name="bookselltype" value="Purchase">Purchase<br>
-                Price of Book:
-                <input type="text" name="bookprice">
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>ADD BOOK</title>
+
+    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+
+    
+    <link rel="stylesheet" href="css/styles.css"> -->
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back link">
+                    <i class="icon icon-back"></i>
+                    <span>Back</span>
+                </a>
+            </div>
+            <div class="center sliding">BOOK DETAILS</div>
+            <div class="right">
+                <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
             </div>
         </div>
     </div>
-</div>
+    <div class="pages">
+        <div data-page="addbook" class="page">
+            <div class="page-content">
+                <div class="content-block">
+                    <form action="#" method="POST">
+                        <label for="bookname">Book Name</label>
+                        <center><input id="bookname" type="text" name="bookname" placeholder="Type book name here..."></center>
+                        <label for="bookauthor">Book Author</label>
+                        <center><input id="bookauthor" type="text" name="bookauthor" placeholder="Type book author here ..."></center>
+                        <br>
+                        <center><textarea rows="4" cols="50" name="bookdescription" placeholder="Book Description ..."></textarea></center>
+                        <br>
+                        <label for="selltype">Selltype of Book</label>
+                            <select id="selltype" name="selltype">
+                                <option value="australia">Rental</option>
+                                <option value="canada">Purchase</option>
+                            </select>
+                        <label for="bookprice">Price of Book</label>
+                        <input id="bookprice" type="text" name="bookprice">
+                        <input type='file' />
+                        <img id="myImg" src="#" alt="your image" style="display: none;" width=100 />
+                        <input class="input" type="submit" value="SUBMIT"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(":file").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        function imageIsLoaded(e) {
+            $('img').attr('src', e.target.result);
+            $('img').fadeIn();
+        };
+    </script>
+</body>
+</html>
