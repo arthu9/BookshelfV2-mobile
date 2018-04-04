@@ -15,73 +15,34 @@
   <link rel="stylesheet" href="css/styles.css">
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script>
-  function signup() {
-    $.ajax({
-      url: "http://127.0.0.1:5000/signup",
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify({
-        'first_name':$("#first_name").val(),
-        'last_name':$("#last_name").val(),
-        'contact_number':$("#contact_number").val(),
-        'birth_date':$("#birth_date").val(),
-        'gender':$("#gender").val(),
-        'username':$("#username").val(),
-        'password':$("#password").val()
-      }),
-      method: "POST",
-      dataType: "json",
-      crossDomain: true,
-      success: function() {
-        console.log("success");
-        alert("Registered successfully!");
-        window.location.replace("login.html");
-      },
-      error: function () {
-        console.log('error');
-      },
-      complete: function (jqXHR) {
-        if (jqXHR.status == '401') {
-          console.log(jqXHR.status);
-        }
-      }
-    })
-  }
-
-
-
-    // $(document).ready(function () {
-    //   $('#signup').click(function () {
-    //     $.ajax({
-    //       url: "http://127.0.0.1:5000/signup",
-    //       contentType: 'application/json; charset=utf-8',
-    //       data: JSON.stringify({
-    //         'first_name':$("#first_name").val(),
-    //         'last_name':$("#last_name").val(),
-    //         'contact_number':$("#contact_number").val(),
-    //         'birth_date':$("#birth_date").val(),
-    //         'gender':$("#gender").val(),
-    //         'username':$("#username").val(),
-    //         'password':$("#password").val()
-    //       }),
-    //       method: "POST",
-    //       dataType: "json",
-    //       crossDomain: true,
-    //       success: function() {
-    //         console.log("success");
-    //         alert("Registered successfully!");
-    //         window.location.replace("login.html");
-    //       },
-    //       error: function () {
-    //         console.log('error');
-    //       },
-    //       complete: function (jqXHR) {
-    //         if (jqXHR.status == '401') {
-    //           console.log(jqXHR.status);
-    //         }
-    //       }
-    //     })
-    //   });
-    // })
+    $(document).ready(function () {
+      $('#signup').click(function () {
+        $.ajax({
+          url: "http://127.0.0.1:5000/signup",
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify({
+            'first_name':$("#first_name").val(),
+            'last_name':$("#last_name").val(),
+            'contact_number':$("#contact_number").val(),
+            'birth_date':$("#birth_date").val(),
+            'gender':$("#gender").val(),
+            'username':$("#username").val(),
+            'password':$("#password").val()
+          }),
+          method: "POST",
+          dataType: "json",
+          crossDomain: true,
+          success: function() {
+            console.log("success");
+            alert("Registered successfully!");
+            window.location.replace("login.html");
+          },
+          error: function () {
+            console.log('error');
+          }
+        })
+      });
+    });
   </script>
 </head>
 <body>
@@ -109,23 +70,23 @@
         <list>
           <list-item>
             <label>First Name: </label>
-            <input type="text" placeholder="Your First name" id="first_name"></input>
+            <input type="text" placeholder="Your First name" id="first_name">
           </list-item><br><br>
           <list-item>
             <label>Last Name: </label>
-            <input type="text" placeholder="Your Last name" id="last_name"></input>
+            <input type="text" placeholder="Your Last name" id="last_name">
           </list-item><br><br>
           <list-item>
             <label>Contact Number: </label>
-            <input type="text" placeholder="Your Contact Number" id="contact_number"></input>
+            <input type="text" placeholder="Your Contact Number" id="contact_number">
           </list-item><br><br>
           <list-item>
             <label>Birthday: </label>
-            <input type="date" id="birth_day" clear-button></input>
+            <input type="date" id="birth_date" clear-button>
           </list-item><br><br>
           <list-item>
             <label>Gender: </label>
-            <select form="gender">
+            <select id="gender">
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -151,7 +112,7 @@
         </list>
       </div>
 
-      <input type="button" name="Register" value="Register" id="save-btn" class="col button button-big button-fill button-round" onclick="signup();">
+      <input type="button" name="Register" value="Register" id="signup" class="col button button-big button-fill button-round">
     </div>
   </div>
   <script type="text/javascript" src="cordova.js"></script>
