@@ -5,11 +5,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
 from functools import wraps
-from flask_httpauth import HTTPBasicAuth
+# from flask_httpauth import HTTPBasicAuth
 from models import *
 
 
-auth = HTTPBasicAuth()
+# auth = HTTPBasicAuth()
+app.config['SECRET_KEY'] = 'thisisthesecretkey'
 
 def token_required(f):
     @wraps(f)
@@ -134,25 +135,34 @@ def create_user():
 #     db.session.commit()
 #
 #     return ({'message' : 'The user has been deleted!'})
+def check_password(n,m):
+    if n==m:
+        return True
+    return False
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    auth = request.get_json()
+    #auth = request.get_json()
+    auth = request.json
 
 
-    if not auth or not auth.username or not auth.password:
+    if not auth or not auth['username'] or not auth['password']:
         return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic Realm="Login Required!"'})
 
-    user = User.query.filter_by(username=auth.username).first()
+    user = User.query.filter_by(username=auth['username']).first()
+    print user
 
     if not user:
         return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic Realm="Login Required!"'})
 
-    if check_password_hash(user.password, auth.password):
-        token = jwt.encode({'id' : user.id, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
+    print str(auth['password'])
+    #if check_password_hash(user.password, auth['password']):
+    if check_password(user.password, str(auth['password'])):
+        print check_password_hash(user.password, auth['password'])
+        token = jwt.encode({'id' : str(user.id), 'exp' : str(datetime.datetime.utcnow()) + str(datetime.timedelta(minutes=30))}, app.config['SECRET_KEY'])
 
-        return jsonify({'token' : token.decode('UTF-8'), 'username' : user})
-
+        return jsonify({'token' : token.decode('UTF-8'), 'username' : user.username, 'status': 'ok'})
+    print user.password
     return make_response('Could not verify', 401, {'WWW-Authenticate': 'Basic Realm="Login Required!"'})
 
 @app.route('/bookshelf/<int:shelf_id>/search/<string:item>', methods=['GET'])

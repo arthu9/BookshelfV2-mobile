@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(50), nullable=False)
     contact_number = db.Column(db.String(11))
     birth_date = db.Column(db.DATE, nullable=False)
-    gender = db.Column(db.String(6), nullable=False)
+    sex = db.Column(db.String(6), nullable=False)
     profpic = db.Column(db.TEXT)
     bookshelf_user = db.relationship('Bookshelf', uselist=False, backref='user_bookshelf')
     borrow_bookshelfs = db.relationship('BorrowsAssociation', backref='user_borrow')
