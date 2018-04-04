@@ -135,7 +135,7 @@ def create_user():
 #
 #     return ({'message' : 'The user has been deleted!'})
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     auth = request.get_json()
 

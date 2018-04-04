@@ -4,31 +4,18 @@
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/animate.css">
-<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="/css/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/animsition.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/css/select2.min.css">
-<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="/css/daterangepicker.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/css/utillogin.css">
 	<link rel="stylesheet" type="text/css" href="/css/login.css">
-<!--===============================================================================================-->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -45,23 +32,22 @@
     </div>
   </div>
   <div>
-				<form class="login100-form validate-form">
 
 					<div class="validate-input m-b-12" data-validate="Please enter username">
-						<input class="input100" type="text" name="username" placeholder="Username">
+						<input class="input100" type="text" id="username" placeholder="Username">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="validate-input" data-validate = "Please enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" id="password" placeholder="Password">
 						<span class="focus-input100"></span>
 					</div>
 
 					<br>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Sign in
+						<button type="button" class="login100-form-btn" onclick="login()">
+							Login
 						</button>
 					</div>
 
@@ -85,26 +71,17 @@
 							REGISTER
 						</a>
 					</div>
-				</form>
 	</div>
 
-
-
-<!--===============================================================================================-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 	<script src="/js/animsition.min.js"></script>
-<!--===============================================================================================-->
 	<script src="js/popper.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
 	<script src="/js/select2.min.js"></script>
-<!--===============================================================================================-->
 	<script src="/js/moment.min.js"></script>
 	<script src="/js/daterangepicker.js"></script>
-<!--===============================================================================================-->
 	<script src="/js/countdowntime.js"></script>
-<!--===============================================================================================-->
 	<script src="/js/login.js"></script>
 
 </body>
