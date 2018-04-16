@@ -1,27 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-
-    <!-- Required meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-
-    <title>ADD BOOK</title>
-
-    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-
-    
-    <link rel="stylesheet" href="css/styles.css"> -->
-</head>
-<body>
 
     <div class="navbar">
         <div class="navbar-inner">
@@ -31,7 +7,7 @@
                     <span>Back</span>
                 </a>
             </div>
-            <div class="center sliding">BOOK DETAILS</div>
+            <div class="center sliding">Add Book</div>
             <div class="right">
                 <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
             </div>
@@ -41,41 +17,92 @@
         <div data-page="addbook" class="page">
             <div class="page-content">
                 <div class="content-block">
-                    <form action="#" method="POST">
-                        <label for="bookname">Book Name</label>
-                        <center><input id="bookname" type="text" name="bookname" placeholder="Type book name here..."></center>
-                        <label for="bookauthor">Book Author</label>
-                        <center><input id="bookauthor" type="text" name="bookauthor" placeholder="Type book author here ..."></center>
-                        <br>
-                        <center><textarea rows="4" cols="50" name="bookdescription" placeholder="Book Description ..."></textarea></center>
-                        <br>
-                        <label for="selltype">Selltype of Book</label>
-                            <select id="selltype" name="selltype">
-                                <option value="australia">Rental</option>
-                                <option value="canada">Purchase</option>
-                            </select>
-                        <label for="bookprice">Price of Book</label>
-                        <input id="bookprice" type="text" name="bookprice">
-                        <input type='file' />
-                        <img id="myImg" src="#" alt="your image" style="display: none;" width=100 />
-                        <input class="input" type="submit" value="SUBMIT"></input>
-                    </form>
+                    <h1><font size="5">Enter Book Details</font></h1><br>
+                        <form action="#" method="POST">
+                            <!-- <div class="list no-hairlines-md">
+                                <ul>
+                                    <li>
+                                        <div class="item-content item-input">
+                                            <div class="item-inner">
+                                                <div class="item-title item-label">NAME</div>
+                                                <div class="item-input-wrap">
+                                                    <input type="text" placeholder="Your name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            <div class="input-group">
+                                <span class="input-group-addon">Book Title</span>
+                                <input type="text" name="title" class="form-control" id="booktitle" placeholder="Enter book title">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Book Publisher</span>
+                                <input type="text" name="publisher_name" class="form-control" id="bookpublisher" placeholder="Enter book publisher">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Year Published</span>
+                                <input type="text" name="year" class="form-control" id="yearpublish" placeholder="Enter year published">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Book Edition</span>
+                                <input type="text" name="edition" class="form-control" id="bookedition" placeholder="Enter book edition">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Types</span>
+                                <select class="form-control" id="types" name="types">
+                                <option>test</option>
+                                <option>test2</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Book Author</span>
+                                <input type="text" name="author_fname" class="form-control" id="authorfnm" placeholder="Enter author first name">
+                                <input type="text" name="author_lname" class="form-control" id="authorlnm" placeholder="Enter author last name">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">ISBN</span>
+                                <input type="text" name="isbn" class="form-control" id="isbn" placeholder="Enter ISBN">
+                            </div>
+                            <!-- <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Categories</span>
+                                <select class="form-control" id="categories" name="categories">
+                                <option>test</option>
+                                <option>test2</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Type here..." name="descrip"></textarea>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Selltype</span>
+                                <select class="form-control" id="selltype" name="selltype">
+                                <option>Rental</option>
+                                <option>Purchase</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Price</span>
+                                <span class="input-group-addon">₱</span>
+                                <input id="bookprice" type="text" name="bookprice" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            </div> --><br>
+                            <div class="col-auto">
+                                <center><button type="submit" onclick="addbook(form)" class="col button button-big button-fill button-round">Add Book</button></center>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $(":file").change(function () {
-            if (this.files && this.files[0]) {
-                var reader = new FileReader();
-                reader.onload = imageIsLoaded;
-                reader.readAsDataURL(this.files[0]);
-            }
-        });
-        function imageIsLoaded(e) {
-            $('img').attr('src', e.target.result);
-            $('img').fadeIn();
-        };
-    </script>
-</body>
-</html>
