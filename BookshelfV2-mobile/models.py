@@ -8,9 +8,10 @@ from flask_login import UserMixin
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:password@localhost/bookshelf'
-engine = sqlalchemy.create_engine('postgres://postgres:password@localhost')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@127.0.0.1:5432/bookshelf'
+engine = sqlalchemy.create_engine('postgresql://postgres:password@127.0.0.1:5432/bookshelf')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'thisisthesecretkey'
 
 
 db = SQLAlchemy(app)
@@ -23,8 +24,8 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(50), nullable=False)
     contact_number = db.Column(db.String(11))
     birth_date = db.Column(db.DATE, nullable=False)
-    sex = db.Column(db.String(6), nullable=False)
-    profpic = db.Column(db.TEXT)
+    gender = db.Column(db.String(6), nullable=False)
+    # profpic = db.Column(db.TEXT)
     bookshelf_user = db.relationship('Bookshelf', uselist=False, backref='user_bookshelf')
     borrow_bookshelfs = db.relationship('BorrowsAssociation', backref='user_borrow')
     userRateBooks = db.relationship('BookRateAssociation', backref='user_raterBooks')
@@ -32,14 +33,14 @@ class User(UserMixin, db.Model):
     user_interest = db.relationship('InterestAssociation', backref='user_interest')
 
 
-    def __init__(self, username='', password='', first_name='', last_name='', contact_number='', birth_date='', sex=''):
+    def __init__(self, username='', password='', first_name='', last_name='', contact_number='', birth_date='', gender=''):
         self.username = username
         self.password = generate_password_hash(password, method='sha256')
         self.first_name = first_name
         self.last_name = last_name
         self.contact_number = contact_number
         self.birth_date = birth_date
-        self.sex = sex
+        self.gender = gender
 
 
 class Bookshelf(db.Model):

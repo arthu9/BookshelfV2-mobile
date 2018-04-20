@@ -1,127 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Register</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/CSS/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/css/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/css/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/util-signup.css">
-	<link rel="stylesheet" type="text/css" href="/css/signup.css">
-<!--===============================================================================================-->
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
 
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-  	<script src="/js/jquery-3.2.1.min.js"></script>
-  	<script src="/js/bootstrap.min.js"></script>
+  <title>BookShelf</title>
 
+  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#signup').click(function () {
+        $.ajax({
+          url: "http://127.0.0.1:5000/signup",
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify({
+            'first_name':$("#first_name").val(),
+            'last_name':$("#last_name").val(),
+            'contact_number':$("#contact_number").val(),
+            'birth_date':$("#birth_date").val(),
+            'gender':$("#gender").val(),
+            'username':$("#username").val(),
+            'password':$("#password").val(),
+          }),
+          method: "POST",
+          dataType: "json",
+          crossDomain: true,
+          success: function() {
+            console.log("success");
+            alert("Registered successfully!");
+            window.location.replace("login.html");
+          },
+          error: function () {
+            console.log('error');
+          }
+        })
+      });
+    });
+  </script>
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="login100-more" style="background-image: url('');"></div>
+  <div class="page">
+    <div class="page-content scroll-content">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">
+            <a class="link back">
+              <i class="icon icon-back"></i>
+              <span class="ios-only">Back</span>
+            </a>
+          </div>
+        	<div class="title">Sign Up</div>
+            <div class="right">
+            	<a href="login.html">Login</a>
+            </div>
+        </div>
+      </div>
+      <div class="subhead">
+        <h2>Personal Information</h2>
+      </div>
+      <div class="input">
+        <list>
+          <list-item>
+            <label>First Name: </label>
+            <input type="text" placeholder="Your First name" id="first_name">
+          </list-item><br><br>
+          <list-item>
+            <label>Last Name: </label>
+            <input type="text" placeholder="Your Last name" id="last_name">
+          </list-item><br><br>
+          <list-item>
+            <label>Contact Number: </label>
+            <input type="text" placeholder="Your Contact Number" id="contact_number">
+          </list-item><br><br>
+          <list-item>
+            <label>Birthday: </label>
+            <input type="date" id="birth_date" clear-button>
+          </list-item><br><br>
+          <list-item>
+            <label>Gender: </label>
+            <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </list-item><br><br>
+        </list>
+      </div>
+      <div class="subhead">
+        <h2>Account Information</h2>
+      </div>
+      <div class="input">
+        <list>
+          <list-item>
+            <label>Username: </label>
+            <input type="text" placeholder="Your Username" name="Username" id="username">
+          </list-item><br><br>
+          <list-item>
+            <label>Password: </label>
+            <input type="password" placeholder="Your Password" name="password" id="password">
+          </list-item><br><br>
+          <list-item>
+            <label></label>
+          </list-item>
+        </list>
+      </div>
 
-			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-59">
-						Sign Up
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate="Name is required">
-						<span class="label-input100">Full Name</span>
-						<input class="input100" type="text" name="name" placeholder="Name...">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" placeholder="Email addess...">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Username is required">
-						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Username...">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="text" name="pass" placeholder="*************">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
-						<span class="label-input100">Repeat Password</span>
-						<input class="input100" type="text" name="repeat-pass" placeholder="*************">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="flex-m w-full p-b-33">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								<span class="txt1">
-									I agree to the
-									<a href="#" class="txt2 hov1">
-										Terms of User
-									</a>
-								</span>
-							</label>
-						</div>
-
-						
-					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" href="signup2.html">
-								Next
-							</button>
-						</div>
-
-						<a href="login.html" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
-							Sign in
-							<i class="fa fa-long-arrow-right m-l-5"></i>
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-<!--===============================================================================================-->
-<!--===============================================================================================-->
-	<script src="/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/js/popper.js"></script>
-<!--===============================================================================================-->
-	<script src="/js/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/js/moment.min.js"></script>
-	<script src="/js/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="/js/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/signup.js"></script>
-
+      <input type="button" name="Register" value="Register" id="signup" class="col button button-big button-fill button-round">
+    </div>
+  </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+  <script type="text/javascript" src="js/my-app.js"></script>
 </body>
 </html>
