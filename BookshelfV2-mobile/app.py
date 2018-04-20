@@ -1,16 +1,27 @@
-from flask import Flask, jsonify, request, make_response
-from flask_sqlalchemy import SQLAlchemy
-import uuid
+# from flask import Flask, jsonify, request, make_response
+# from flask_sqlalchemy import SQLAlchemy
+# import uuid
+# from werkzeug.security import generate_password_hash, check_password_hash
+# import jwt
+# import datetime
+# from functools import wraps
+# # from flask_httpauth import HTTPBasicAuth
+# from models import *
+# //////////////////////////
+from flask import Flask, jsonify, request, make_response, render_template
+# from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
 from functools import wraps
 # from flask_httpauth import HTTPBasicAuth
 from models import *
+from sqlalchemy import cast
 
 
-# auth = HTTPBasicAuth()
-app.config['SECRET_KEY'] = 'thisisthesecretkey'
+
+# # auth = HTTPBasicAuth()
+# app.config['SECRET_KEY'] = 'thisisthesecretkey'
 
 def token_required(f):
     @wraps(f)
@@ -88,10 +99,10 @@ def create_user():
 
     data = request.get_json()
 
-    hashed_password = generate_password_hash(data['password'], method='sha256')
+    # hashed_password = generate_password_hash(data['password'], method='sha256')
 
-    new_user = User(username=data['username'], password=hashed_password, first_name=data['first_name'],last_name=data['last_name'],
-                    contact_number=data['contact_number'], birth_date=data['birth_date'], gender = data['gender'], profpic = data['profpic'])
+    new_user = User(username=data['username'], password=data['password'], first_name=data['first_name'],last_name=data['last_name'],
+                    contact_number=data['contact_number'], birth_date=data['birth_date'], gender = data['gender'])
 
     user = User.query.filter_by(username=data['username']).first()
 
@@ -102,47 +113,8 @@ def create_user():
     else:
         return jsonify({'message': 'username already created'})
 
-# @app.route('/user/<user_id>', methods=['PUT'])
-# @token_required
-# def promote_user(current_user, public_id):
-#
-#     # if not current_user.admin:
-#     #     return jsonify({'message' : 'Cannot perform that function!'})
-#
-#     user = User.query.filter_by(public_id=public_id).first()
-#
-#     if not user:
-#         return jsonify({'message' : 'No user found!'})
-#
-#     user.admin = True
-#     db.session.commit()
-#
-#     return jsonify({'message' : 'The user has been promoted!'})
-#
-# @app.route('/user/<user_id>', methods=['DELETE'])
-# @token_required
-# def delete_user(current_user, public_id):
-#
-#     # if not current_user.admin:
-#     #     return jsonify({'message' : 'Cannot perform that function!'})
-#
-#     user = User.query.filter_by(public_id=public_id).first()
-#
-#     if not user:
-#         return jsonify({'message': 'No user found!'})
-#
-#     db.session.delete(user)
-#     db.session.commit()
-#
-#     return ({'message' : 'The user has been deleted!'})
-def check_password(n,m):
-    if n==m:
-        return True
-    return False
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    #auth = request.get_json()
     auth = request.json
 
 
@@ -156,8 +128,7 @@ def login():
         return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic Realm="Login Required!"'})
 
     print str(auth['password'])
-    #if check_password_hash(user.password, auth['password']):
-    if check_password(user.password, str(auth['password'])):
+    if check_password_hash(user.password, auth['password']):
         print check_password_hash(user.password, auth['password'])
         token = jwt.encode({'id' : str(user.id), 'exp' : str(datetime.datetime.utcnow()) + str(datetime.timedelta(minutes=30))}, app.config['SECRET_KEY'])
 
