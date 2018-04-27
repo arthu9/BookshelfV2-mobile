@@ -13,21 +13,34 @@
   <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
   <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/signup.css">
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script>
     $(document).ready(function () {
       $('#signup').click(function () {
+        var first_name = $("#first_name").val(),
+        var last_name = $("#last_name").val(),
+        var contact_number = $("#contact_number").val(),
+        var birthdate = $("#birth_date").val(),
+        var gender = $("#gender").val(),
+        var username = $("#username").val(),
+        var password = $("#password").val(),
+        var address = $("#address").val(),
+        var profpic = null
         $.ajax({
           url: "http://127.0.0.1:5000/signup",
           contentType: 'application/json; charset=utf-8',
           data: JSON.stringify({
-            'first_name':$("#first_name").val(),
-            'last_name':$("#last_name").val(),
-            'contact_number':$("#contact_number").val(),
-            'birth_date':$("#birth_date").val(),
-            'gender':$("#gender").val(),
-            'username':$("#username").val(),
-            'password':$("#password").val(),
+            'first_name': first_name,
+            'last_name': last_name,
+            'contact_number': contact_number,
+            'birth_date': birthdate,
+            'gender': gender,
+            'username': username,
+            'password': password,
+            'address': address,
+            'profpic': profpic
           }),
           method: "POST",
           dataType: "json",
@@ -35,7 +48,7 @@
           success: function() {
             console.log("success");
             alert("Registered successfully!");
-            window.location.replace("login.html");
+            window.location.replace("signup2.html");
           },
           error: function () {
             console.log('error');
@@ -62,7 +75,84 @@
             </div>
         </div>
       </div>
-      <div class="subhead">
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+          <span>0% Complete</span>
+        </div>
+      </div>  
+
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+
+          <img id="ambot" src="images/magic.png" style="width:100%">
+
+          <div class="subhead">
+            <h2>Personal Information</h2>
+          </div>
+          <div class="input">
+            <list>
+              <list-item>
+                <label>First Name: </label>
+                <input type="text" placeholder="Your First name" id="first_name">
+              </list-item><br><br>
+              <list-item>
+                <label>Last Name: </label>
+                <input type="text" placeholder="Your Last name" id="last_name">
+              </list-item><br><br>
+              <list-item>
+                <label>Address: </label>
+                <input type="text" placeholder="Your Address" id="address">
+              </list-item><br><br>
+              <list-item>
+                <label>Contact Number: </label>
+                <input type="text" placeholder="Your Contact Number" id="contact_number">
+              </list-item><br><br>
+              <list-item>
+                <label>Birthday: </label>
+                <input type="date" id="birth_date" clear-button>
+              </list-item><br><br>
+              <list-item>
+                <label>Gender: </label>
+                <select id="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </list-item><br><br>
+            </list>
+          </div>
+          <button class="col button button-big button-fill button-round" onclick="plusSlides(-1)">NEXT</button>
+
+        </div>
+
+        <div class="mySlides fade">
+          
+          <div class="subhead">
+            <h2>Account Information</h2>
+          </div>
+          <div class="input">
+            <list>
+              <list-item>
+                <label>Username: </label>
+                <input type="text" placeholder="Your Username" name="Username" id="username">
+              </list-item><br><br>
+              <list-item>
+                <label>Password: </label>
+                <input type="password" placeholder="Your Password" name="password" id="password">
+              </list-item><br><br>
+              <list-item>
+                <label>Profile Picture: </label>
+                <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+              </list-item><br>
+            </list>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- <div class="subhead">
         <h2>Personal Information</h2>
       </div>
       <div class="input">
@@ -74,6 +164,10 @@
           <list-item>
             <label>Last Name: </label>
             <input type="text" placeholder="Your Last name" id="last_name">
+          </list-item><br><br>
+          <list-item>
+            <label>Address: </label>
+            <input type="text" placeholder="Your Address" id="address">
           </list-item><br><br>
           <list-item>
             <label>Contact Number: </label>
@@ -91,31 +185,16 @@
             </select>
           </list-item><br><br>
         </list>
-      </div>
-      <div class="subhead">
-        <h2>Account Information</h2>
-      </div>
-      <div class="input">
-        <list>
-          <list-item>
-            <label>Username: </label>
-            <input type="text" placeholder="Your Username" name="Username" id="username">
-          </list-item><br><br>
-          <list-item>
-            <label>Password: </label>
-            <input type="password" placeholder="Your Password" name="password" id="password">
-          </list-item><br><br>
-          <list-item>
-            <label></label>
-          </list-item>
-        </list>
-      </div>
+      </div> -->
 
-      <input type="button" name="Register" value="Register" id="signup" class="col button button-big button-fill button-round">
+      <input type="button" name="NEXT" value="NEXT" id="signup" class="col button button-big button-fill button-round">
     </div>
   </div>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
   <script type="text/javascript" src="js/my-app.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
 </body>
 </html>

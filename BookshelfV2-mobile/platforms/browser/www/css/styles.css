@@ -21,3 +21,14 @@
 .input{
 	margin-left: 10px;
 }
+
+.progress {
+    position: relative;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    color: black;
+ }

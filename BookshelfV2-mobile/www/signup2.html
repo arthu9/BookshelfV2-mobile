@@ -25,6 +25,7 @@
         var gender = $("#gender").val(),
         var username = $("#username").val(),
         var password = $("#password").val(),
+        var address = $("#address").val(),
         var profpic = null
         $.ajax({
           url: "http://127.0.0.1:5000/signup",
@@ -37,6 +38,7 @@
             'gender': gender,
             'username': username,
             'password': password,
+            'address': address,
             'profpic': profpic
           }),
           method: "POST",
@@ -45,7 +47,7 @@
           success: function() {
             console.log("success");
             alert("Registered successfully!");
-            window.location.replace("login.html");
+            window.location.replace("signup2.html");
           },
           error: function () {
             console.log('error');
@@ -74,45 +76,11 @@
       </div>
 
       <div class="progress">
-        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
-          <span>0% Complete</span>
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%;">
+          <span>33% Complete</span>
         </div>
       </div>  
 
-      <div class="subhead">
-        <h2>Personal Information</h2>
-      </div>
-      <div class="input">
-        <list>
-          <list-item>
-            <label>First Name: </label>
-            <input type="text" placeholder="Your First name" id="first_name">
-          </list-item><br><br>
-          <list-item>
-            <label>Last Name: </label>
-            <input type="text" placeholder="Your Last name" id="last_name">
-          </list-item><br><br>
-          <list-item>
-            <label>Address: </label>
-            <input type="text" placeholder="Your Contact Number" id="contact_number">
-          </list-item><br><br>
-          <list-item>
-            <label>Contact Number: </label>
-            <input type="text" placeholder="Your Contact Number" id="contact_number">
-          </list-item><br><br>
-          <list-item>
-            <label>Birthday: </label>
-            <input type="date" id="birth_date" clear-button>
-          </list-item><br><br>
-          <list-item>
-            <label>Gender: </label>
-            <select id="gender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </list-item><br><br>
-        </list>
-      </div>
       <div class="subhead">
         <h2>Account Information</h2>
       </div>
@@ -127,8 +95,9 @@
             <input type="password" placeholder="Your Password" name="password" id="password">
           </list-item><br><br>
           <list-item>
-            <label></label>
-          </list-item>
+            <label>Profile Picture: </label>
+            <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+          </list-item><br>
         </list>
       </div>
 
