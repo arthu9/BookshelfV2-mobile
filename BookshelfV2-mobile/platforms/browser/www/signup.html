@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/signup.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+</head>
+<body>
+<form id="regForm" action="">
+
+<h1>Register:</h1>
+
+<!-- One "tab" for each step in the form: -->
+<div class="tab">Name:
+  <p><input id="first_name" placeholder="First name..." oninput="this.className = ''"></p>
+  <p><input id="last_name" placeholder="Last name..." oninput="this.className = ''"></p>
+</div>
+
+<div class="tab">Info:
+  <p><input id="birth_date" type="date" oninput="this.className = ''"></p>
+  <p><input id="contact_number" placeholder="Phone..." oninput="this.className = ''"></p>
+</div>
+
+<div class="tab">Gender:
+  <p><input id="gender" placeholder="male or female" oninput="this.className = ''"></p>
+</div>
+
+<div class="tab">Login Info:
+  <p><input name="Username" id="username" placeholder="Username..." oninput="this.className = ''"></p>
+  <p><input name="password" id="password" type="password" placeholder="Password..." oninput="this.className = ''"></p>
+</div>
+
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+
+</form>
+
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/signup.js"></script>
+
+</body>
+</html>
