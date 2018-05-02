@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>BookShelf</title>
+
+  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#signup').click(function () {
+        var first_name = $("#first_name").val(),
+        var last_name = $("#last_name").val(),
+        var contact_number = $("#contact_number").val(),
+        var birthdate = $("#birth_date").val(),
+        var gender = $("#gender").val(),
+        var username = $("#username").val(),
+        var password = $("#password").val(),
+        var address = $("#address").val(),
+        var profpic = null
+        $.ajax({
+          url: "http://127.0.0.1:5000/signup",
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify({
+            'first_name': first_name,
+            'last_name': last_name,
+            'contact_number': contact_number,
+            'birth_date': birthdate,
+            'gender': gender,
+            'username': username,
+            'password': password,
+            'address': address,
+            'profpic': profpic
+          }),
+          method: "POST",
+          dataType: "json",
+          crossDomain: true,
+          success: function() {
+            console.log("success");
+            alert("Registered successfully!");
+            window.location.replace("signup2.html");
+          },
+          error: function () {
+            console.log('error');
+          }
+        })
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="page">
+    <div class="page-content scroll-content">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">
+            <a class="link back">
+              <i class="icon icon-back"></i>
+              <span class="ios-only">Back</span>
+            </a>
+          </div>
+        	<div class="title">Sign Up</div>
+            <div class="right">
+            	<a href="login.html">Login</a>
+            </div>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%;">
+          <span>33% Complete</span>
+        </div>
+      </div>  
+
+      <div class="subhead">
+        <h2>Account Information</h2>
+      </div>
+      <div class="input">
+        <list>
+          <list-item>
+            <label>Username: </label>
+            <input type="text" placeholder="Your Username" name="Username" id="username">
+          </list-item><br><br>
+          <list-item>
+            <label>Password: </label>
+            <input type="password" placeholder="Your Password" name="password" id="password">
+          </list-item><br><br>
+          <list-item>
+            <label>Profile Picture: </label>
+            <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+          </list-item><br>
+        </list>
+      </div>
+
+      <input type="button" name="NEXT" value="NEXT" id="signup" class="col button button-big button-fill button-round">
+    </div>
+  </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+  <script type="text/javascript" src="js/my-app.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>
