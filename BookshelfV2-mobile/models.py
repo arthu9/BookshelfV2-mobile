@@ -3,10 +3,6 @@ from flask import Flask
 import sqlalchemy, datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-
-
-
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@127.0.0.1:5432/bookshelf'
 engine = sqlalchemy.create_engine('postgresql://postgres:password@127.0.0.1:5432/bookshelf')

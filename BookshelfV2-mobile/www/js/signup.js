@@ -17,7 +17,7 @@ function showTab(n) {
      $(document).ready(function () {
       $('#nextBtn').click(function () {
         $.ajax({
-          url: "http://127.0.0.1:5000/signup",
+          url: "https://bookshelfv2-api.herokuapp.com/signup",
           contentType: 'application/json; charset=utf-8',
           data: JSON.stringify({
             'first_name':$("#first_name").val(),

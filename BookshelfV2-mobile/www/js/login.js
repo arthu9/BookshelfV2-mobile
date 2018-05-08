@@ -1,3 +1,6 @@
+
+var user_id = null;
+
 function login() {
     $.ajax(
         {   
@@ -12,11 +15,12 @@ function login() {
                 
             error: function (data) {
                 alert('Wrong username/password');
+                user_id = data.userid;
                 // window.location.replace('http://www.google.com/');
             },
             success: function (data) {
                 if (data.status == 'ok') {
-                    window.location.replace('http://www.google.com/');
+                    window.location.replace('userprofile.html');
                 }
                 else {
                     // window.location.replace('http://www.google.com/');

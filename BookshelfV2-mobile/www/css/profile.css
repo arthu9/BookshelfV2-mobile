@@ -30,7 +30,7 @@ img{max-width:100%;}
 html, body{
 	font-size: 100%;
     font-family: 'Arsenal', sans-serif;
-    background:#d9e0d7;
+    background:#a0a1a0;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -316,7 +316,8 @@ ul.agileinfo_social_icons {
     color: #333A56;
     font-weight: 600;
 }
-.wthree_tab_grid_list li i {
+.wthree_tab_grid_list li i h5 {
+	font-size:1em;
     color: #333A56;
     width: 45px;
     height: 45px;

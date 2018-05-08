@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,29 +16,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- //custom-theme -->
 <link href="css/profile.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
-<script src="js/jquery-3.3.1.min.js"></script> 
+
+
 <!-- //js -->
 <!-- font-awesome-icons -->
   <link rel="stylesheet" type="text/css" href="/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!-- //font-awesome-icons --> 
 <link href="css/lightcase.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/easy-responsive-tabs.css " />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css " />
 <link href="//fonts.googleapis.com/css?family=Arsenal:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
 </head>
-<body>
+<body onload="profile2();">
   <div class="main">  
     <div class="w3_agile_main_grids">
       <div class="w3layouts_main_grid_left">  
         <div class="w3_main_grid_left_grid">  
-          <h2>Jane A. Doe</h2>
+          <div id="profile"></div>
           <p>Curabitur in turpis porta, tincidunt quam ac, consequat ante.</p>
           <div class="w3l_figure">
             <img src="images/1.png" alt=" " />
           </div>
+
           <ul class="agileinfo_social_icons">
-            <li><a href="#" class="w3_agileits_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#" class="wthree_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#" class="agileinfo_google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            <br>
+            <button type="button" class="btn btn-primary">Follow</button>
+            <button type="button" class="btn btn-info">Chat</button>
+            <button type="button" class="btn btn-warning">Rate</button>
           </ul>
         </div>
       </div>
@@ -61,7 +66,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="wthree_tab_grid_sub">
                   <div class="wthree_tab_grid_sub_left">
                     <h5>321</h5>
-                    <p>Tweets</p>
+                    <p>Books</p>
                   </div>
                   <div class="wthree_tab_grid_sub_left">
                     <h5>213</h5>
@@ -75,13 +80,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="agileits_skills">
                   <h3>PERSONAL INFORMATION</h3>
-                  <div class="w3_agileits_skills_grid">
-                    <ul>
-                                                <li><label>Full Name:</label> Jane A. Doe</li>
-                                                <li><label>Birthdate: </label> 01/01/90</li>
-                                                <li><label>Gender:</label> Male</li>
-                                                <li><label>Address:</label> Tibanga, Iligan City</li
-                    </ul>
+                  <div class="w3_agileits_skills_grid" id="infmain">
+                   
                   </div>
                 </div>
               </div>
@@ -173,6 +173,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <p>© 2017 Delightful Profile. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
     </div>
   </div>
+  <script src="js/jquery.min.js"></script> 
   <script src="js/easyResponsiveTabs.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -198,6 +199,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script>
       $('.showcase').lightcase();
     </script>
+
+
+<script src="js/UserProfile.js"></script> 
   <!-- //light-case -->
 
 </body>
