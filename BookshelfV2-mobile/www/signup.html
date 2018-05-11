@@ -22,29 +22,37 @@
   <script>
     $(document).ready(function () {
       $('#signup').click(function () {
+        var fname = $("#first_name").val();
+        var lname = $("#last_name").val();
+        var contact_number = $("#contact_number").val();
+        var birth_date = $("#birth_date").val();
+        var gender = $("#gender").val();
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var address = $("#address").val();
         $.ajax({
-          url: "http://0.0.0.0:5000/signup",
+          url: "https://bookshelfv2-api.herokuapp.com/signup",
           contentType: 'application/json; charset=utf-8',
           data: JSON.stringify({
-            'first_name': $("#first_name").val(),
-            'last_name': $("#last_name").val(),
-            'contact_number': $("#contact_number").val(),
-            'birth_date': $("#birth_date").val(),
-            'gender': $("#gender").val(),
-            'username': $("#username").val(),
-            'password': $("#password").val(),
-            'address': $("#address").val()
+            'first_name': fname,
+            'last_name': lname,
+            'contact_number': contact_number,
+            'birth_date': birth_date,
+            'gender': gender,
+            'username': username,
+            'password': password,
+            'address': address
           }),
           method: "POST",
           dataType: "json",
           crossDomain: true,
-          success: function() {
+          success: function(resp) {
             console.log("success");
             move(64,48);
             alert("Registered successfully!");
             window.location.replace("upload.html");
           },
-          error: function () {
+          error: function (e) {
             console.log('error');
           }
         })
